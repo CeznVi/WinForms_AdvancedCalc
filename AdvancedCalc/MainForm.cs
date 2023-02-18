@@ -313,6 +313,41 @@ namespace SimpleCalc
                         DoOperationWithOperand("ln", ref (WhichOperandToDo()));
                         break;
                     }
+                case "10^x":
+                    {
+                        DoOperationWithOperand("10^x", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "sin()":
+                    {
+                        DoOperationWithOperand("sin()", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "cos()":
+                    {
+                        DoOperationWithOperand("cos()", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "tan()":
+                    {
+                        DoOperationWithOperand("tan()", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "asin()":
+                    {
+                        DoOperationWithOperand("asin()", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "acos()":
+                    {
+                        DoOperationWithOperand("acos()", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "atan()":
+                    {
+                        DoOperationWithOperand("atan()", ref (WhichOperandToDo()));
+                        break;
+                    }
             }
 
         }
@@ -575,6 +610,79 @@ namespace SimpleCalc
                         textBoxResult.Text = operand;
                         break;
                     }
+                case "10^x":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Pow(10,num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "sin()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Sin(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "cos()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Cos(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "tan()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Tan(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "asin()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Asin(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "acos()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Acos(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "atan()":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Atan(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+
+
+
 
             }
         }
