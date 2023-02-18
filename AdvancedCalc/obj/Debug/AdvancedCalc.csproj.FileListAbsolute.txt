@@ -10,3 +10,4 @@ C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.exe
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.pdb
+C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.ConfigForm.resources

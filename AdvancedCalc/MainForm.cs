@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,7 +10,7 @@ namespace SimpleCalc
     public partial class MainForm : Form
     {
 
-        private readonly string[] _buttonNames =
+        private readonly string[] _buttonNames_SimplyCalc =
         {
             "±", "x²", "⬅", "C",
             "1/x", "%", "√", "×",
@@ -18,7 +19,15 @@ namespace SimpleCalc
             "7", "8", "9", "-",
             "0" ,",", "="
         };
-
+        private readonly string[] _buttonNames_AdvandcedCalc =
+        {
+            "𝝅","|x|","±", "x²", "⬅", "C",
+            "log","ln","1/x", "%", "√", "×",
+            "10^x","x^y", "1",  "2", "3", "/",
+            "asin()","sin()","4",  "5",  "6", "+",
+            "acos()","cos()","7", "8", "9", "-",
+            "atan()","tan()","0" ,",", "="
+        };
 
         private List<Button> _buttonList = new List<Button>();
         private const int _bitDepth = 8;
@@ -39,10 +48,23 @@ namespace SimpleCalc
         /// </summary>
         private void InitButtons()
         {
+            string[] _buttonNames = null; 
             int ind = 0;
+            int indDown = 0;
             int posX = 4;
             int posY = 4;
 
+            ///Проверка в каком виде сейчас находимся и какие батоны отрисовывать
+            if (стандартныйToolStripMenuItem.Checked == true)
+            {
+                indDown = 4;
+                _buttonNames = _buttonNames_SimplyCalc;
+            }
+            else if (инженерныйToolStripMenuItem.Checked == true)
+            {
+                indDown = 6;
+                _buttonNames = _buttonNames_AdvandcedCalc;
+            }
             foreach (string nameButton in _buttonNames)
             {
                 Button tmp = new Button();
@@ -69,7 +91,7 @@ namespace SimpleCalc
 
                 ind++;
 
-                if (ind % 4 == 0)
+                if (ind % indDown == 0)
                 {
                     posY += tmp.Size.Height + 4;
                     posX = 4;
@@ -80,6 +102,16 @@ namespace SimpleCalc
                 tmp.Click += Btn_Click;
             }
         }
+        /// <summary>
+        /// Очищает с панели кнопки
+        /// </summary>
+        private void ClearButtons()
+        {
+            panel.Controls.Clear();
+            _buttonList.Clear();
+        }
+
+
         /// <summary>
         /// Проверяет есть ли в строке цифры
         /// </summary>
@@ -100,6 +132,169 @@ namespace SimpleCalc
         /// <param name="e"></param>
         private void Btn_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+
+            switch (btn.Text)
+            {
+                case ("C"):
+                    {
+                        _leftOperand = string.Empty;
+                        _rigthOperand = string.Empty;
+                        _currOperation = string.Empty;
+                        textBoxResult.Text = "0";
+                        break;
+                    }
+                case ("0"):
+                    {
+                        CheckAndAddNum("0");
+                        break;
+                    }
+                case ("1"):
+                    {
+                        CheckAndAddNum("1");
+                        break;
+                    }
+                case ("2"):
+                    {
+                        CheckAndAddNum("2");
+                        break;
+                    }
+                case ("3"):
+                    {
+                        CheckAndAddNum("3");
+                        break;
+                    }
+                case ("4"):
+                    {
+                        CheckAndAddNum("4");
+                        break;
+                    }
+                case ("5"):
+                    {
+                        CheckAndAddNum("5");
+                        break;
+                    }
+                case ("6"):
+                    {
+                        CheckAndAddNum("6");
+                        break;
+                    }
+                case ("7"):
+                    {
+                        CheckAndAddNum("7");
+                        break;
+                    }
+                case ("8"):
+                    {
+                        CheckAndAddNum("8");
+                        break;
+                    }
+                case ("9"):
+                    {
+                        CheckAndAddNum("9");
+                        break;
+                    }
+                case ("⬅"):
+                    {
+                        if (_leftOperand != string.Empty && _rigthOperand == string.Empty)
+                        {
+                            if (_leftOperand.Length > 1)
+                                _leftOperand = _leftOperand.Remove(_leftOperand.Length - 1);
+                            else
+                                _leftOperand = "0";
+
+                            textBoxResult.Text = _leftOperand;
+                        }
+                        else if (_leftOperand != string.Empty && _rigthOperand != string.Empty && _currOperation != string.Empty)
+                        {
+                            if (_rigthOperand.Length > 1)
+                                _rigthOperand = _rigthOperand.Remove(_rigthOperand.Length - 1);
+                            else
+                                _leftOperand = "0";
+
+                            textBoxResult.Text = _rigthOperand;
+                        }
+                        break;
+                    }
+                case "×":
+                    {
+                        _currOperation = "*";
+                        textBoxResult.Text = "";
+                        break;
+                    }
+                case "/":
+                    {
+                        _currOperation = "/";
+                        textBoxResult.Text = "";
+                        break;
+                    }
+                case "+":
+                    {
+                        _currOperation = "+";
+                        textBoxResult.Text = "";
+                        break;
+                    }
+                case "-":
+                    {
+                        _currOperation = "-";
+                        textBoxResult.Text = "";
+                        break;
+                    }
+                case "=":
+                    {
+                        DoOperationAfterEqual();
+                        break;
+                    }
+                case ",":
+                    {
+                        CheckAndAddNum(",");
+                        break;
+                    }
+                case "±":
+                    {
+                        if (_leftOperand != string.Empty && _rigthOperand == string.Empty)
+                        {
+                            if (_leftOperand[0] != '-')
+                                _leftOperand = _leftOperand.Insert(0, "-");
+                            else
+                                _leftOperand = _leftOperand.TrimStart('-');
+
+                            textBoxResult.Text = _leftOperand;
+                        }
+                        else if (_leftOperand != string.Empty && _rigthOperand != string.Empty && _currOperation != string.Empty)
+                        {
+                            if (_rigthOperand[0] != '-')
+                                _rigthOperand = _rigthOperand.Insert(0, "-");
+                            else
+                                _rigthOperand = _rigthOperand.TrimStart('-');
+
+                            textBoxResult.Text = _rigthOperand;
+                        }
+                        break;
+                    }
+                case "x²":
+                    {
+                        DoOperationWithOperand("x²", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "1/x":
+                    {
+                        DoOperationWithOperand("1/x", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "√":
+                    {
+                        DoOperationWithOperand("√", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "%":
+                    {
+                        _currOperation += "%";
+                        textBoxResult.Text += "%";
+                        break;
+                    }
+
+            }
 
         }
 
@@ -346,9 +541,15 @@ namespace SimpleCalc
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+           
+
         }
 
+        /// <summary>
+        /// Действие при нажатии о программе
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();
@@ -361,9 +562,40 @@ namespace SimpleCalc
 
         }
 
+        private void видToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+         
+        private void стандартныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            стандартныйToolStripMenuItem.Checked = true;
+            инженерныйToolStripMenuItem.Checked = false;
+           
+            ClearButtons();
+            textBoxResult.Text = string.Empty;
+
+            this.Size = new Size(
+                int.Parse(ConfigurationManager.AppSettings["simpleModeWidth"]),
+                int.Parse(ConfigurationManager.AppSettings["simpleModeHight"])
+            );
+            InitButtons();
+        }
+
+        private void инженерныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            стандартныйToolStripMenuItem.Checked= false;
+            инженерныйToolStripMenuItem.Checked = true;
+
+            ClearButtons();
+            textBoxResult.Text = string.Empty;
 
 
-
- 
+            this.Size = new Size(
+                    int.Parse(ConfigurationManager.AppSettings["advandcedModeWidth"]),
+                    int.Parse(ConfigurationManager.AppSettings["advandcedModeHight"])
+                );
+            InitButtons();
+        }
     }
 }
