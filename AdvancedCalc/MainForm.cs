@@ -298,7 +298,21 @@ namespace SimpleCalc
                         CheckAndAddNum((Math.PI).ToString());
                         break;
                     }
-
+                case "|x|":
+                    {
+                        DoOperationWithOperand("|x|", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "log":
+                    {
+                        DoOperationWithOperand("log", ref (WhichOperandToDo()));
+                        break;
+                    }
+                case "ln":
+                    {
+                        DoOperationWithOperand("ln", ref (WhichOperandToDo()));
+                        break;
+                    }
             }
 
         }
@@ -492,7 +506,11 @@ namespace SimpleCalc
                 return false;
         }
 
-
+        /// <summary>
+        /// Производит операцию с операндом переданым по ссылке
+        /// </summary>
+        /// <param name="action">Стринговая операция</param>
+        /// <param name="operand">ссылка на операнд</param>
         private void DoOperationWithOperand(string action, ref string operand)
         {
             double num;
@@ -529,7 +547,34 @@ namespace SimpleCalc
                         textBoxResult.Text = operand;
                         break;
                     }
-
+                case "|x|":
+                    {
+                        num = double.Parse(operand);
+                        if (num < 0) num *= -1;
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break; 
+                    }
+                case "log":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Log10(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
+                case "ln":
+                    {
+                        if (IsLeftOperandNull())
+                            break;
+                        num = double.Parse(operand);
+                        num = Math.Log(num);
+                        operand = num.ToString();
+                        textBoxResult.Text = operand;
+                        break;
+                    }
 
             }
         }
