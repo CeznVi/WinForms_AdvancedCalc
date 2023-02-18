@@ -29,7 +29,7 @@ namespace SimpleCalc
 
         private void textBox_AboutForm_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

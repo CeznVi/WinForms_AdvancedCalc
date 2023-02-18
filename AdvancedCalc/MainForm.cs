@@ -100,172 +100,9 @@ namespace SimpleCalc
         /// <param name="e"></param>
         private void Btn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-
-            switch (btn.Text)
-            {
-                case ("C"):
-                    {
-                        _leftOperand = string.Empty;
-                        _rigthOperand = string.Empty;
-                        _currOperation = string.Empty;
-                        textBoxResult.Text = "0";
-                        break;
-                    }
-                case ("0"):
-                    {
-                        CheckAndAddNum("0");
-                        break;
-                    }
-                case ("1"):
-                    {
-                        CheckAndAddNum("1");
-                        break;
-                    }
-                case ("2"):
-                    {
-                        CheckAndAddNum("2");
-                        break;
-                    }
-                case ("3"):
-                    {
-                        CheckAndAddNum("3");
-                        break;
-                    }
-                case ("4"):
-                    {
-                        CheckAndAddNum("4");
-                        break;
-                    }
-                case ("5"):
-                    {
-                        CheckAndAddNum("5");
-                        break;
-                    }
-                case ("6"):
-                    {
-                        CheckAndAddNum("6");
-                        break;
-                    }
-                case ("7"):
-                    {
-                        CheckAndAddNum("7");
-                        break;
-                    }
-                case ("8"):
-                    {
-                        CheckAndAddNum("8");
-                        break;
-                    }
-                case ("9"):
-                    {
-                        CheckAndAddNum("9");
-                        break;
-                    }
-                case ("⬅"):
-                    {
-                        if (_leftOperand != string.Empty && _rigthOperand == string.Empty)
-                        {
-                            if (_leftOperand.Length > 1)
-                                _leftOperand = _leftOperand.Remove(_leftOperand.Length - 1);
-                            else
-                                _leftOperand = "0";
-
-                            textBoxResult.Text = _leftOperand;
-                        }
-                        else if (_leftOperand != string.Empty && _rigthOperand != string.Empty && _currOperation != string.Empty)
-                        {
-                            if (_rigthOperand.Length > 1)
-                                _rigthOperand = _rigthOperand.Remove(_rigthOperand.Length - 1);
-                            else
-                                _leftOperand = "0";
-
-                            textBoxResult.Text = _rigthOperand;
-                        }
-                        break;
-                    }
-                case "×":
-                    {
-                        _currOperation = "*";
-                        textBoxResult.Text = "";
-                        break;
-                    }
-                case "/":
-                    {
-                        _currOperation = "/";
-                        textBoxResult.Text = "";
-                        break;
-                    }
-                case "+":
-                    {
-                        _currOperation = "+";
-                        textBoxResult.Text = "";
-                        break;
-                    }
-                case "-":
-                    {
-                        _currOperation = "-";
-                        textBoxResult.Text = "";
-                        break;
-                    }
-                case "=":
-                    {
-                        DoOperationAfterEqual();
-                        break;
-                    }
-                case ",":
-                    {
-                        CheckAndAddNum(",");
-                        break;
-                    }
-                case "±":
-                    {
-                        if (_leftOperand != string.Empty && _rigthOperand == string.Empty)
-                        {
-                            if (_leftOperand[0] != '-')
-                                _leftOperand = _leftOperand.Insert(0, "-");
-                            else
-                                _leftOperand = _leftOperand.TrimStart('-');
-
-                            textBoxResult.Text = _leftOperand;
-                        }
-                        else if (_leftOperand != string.Empty && _rigthOperand != string.Empty && _currOperation != string.Empty)
-                        {
-                            if (_rigthOperand[0] != '-')
-                                _rigthOperand = _rigthOperand.Insert(0, "-");
-                            else
-                                _rigthOperand = _rigthOperand.TrimStart('-');
-
-                            textBoxResult.Text = _rigthOperand;
-                        }
-                        break;
-                    }
-                case "x²":
-                    {
-                        DoOperationWithOperand("x²", ref(WhichOperandToDo()));
-                        break;
-                    }
-                case "1/x":
-                    {
-                        DoOperationWithOperand("1/x", ref (WhichOperandToDo()));
-                        break;
-                    }
-                case "√":
-                    {
-                        DoOperationWithOperand("√", ref (WhichOperandToDo()));
-                        break;
-                    }
-                case "%":
-                    {
-                        _currOperation += "%";
-                        textBoxResult.Text += "%";
-                        break;
-                    }
-
-            }
 
         }
-        
+
         /// <summary>
         /// Проверить и добавить в строку цифру
         /// </summary>
@@ -525,5 +362,8 @@ namespace SimpleCalc
         }
 
 
+
+
+ 
     }
 }

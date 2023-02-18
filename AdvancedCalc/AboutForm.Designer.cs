@@ -37,11 +37,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(119, 9);
+            this.label1.Location = new System.Drawing.Point(89, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.Size = new System.Drawing.Size(157, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Простой калькулятор";
+            this.label1.Text = "О продвинутом калькуляторе";
             // 
             // textBox_AboutForm
             // 
@@ -57,9 +57,9 @@
             this.textBox_AboutForm.ReadOnly = true;
             this.textBox_AboutForm.Size = new System.Drawing.Size(315, 203);
             this.textBox_AboutForm.TabIndex = 1;
-            this.textBox_AboutForm.Text = "Благодарим за использования програмы \"Простой калькулытор\".\r\n\r\nСкачать самую посл" +
-    "еднюю версию можно по ссылке\r\nна\r\n 🅿🆁🅾🅶🆁🅰🅼🅸🅽🅶   🅱🆈   🅲🅴🆉🅽.🆅🅸\r\n" +
-    "";
+            this.textBox_AboutForm.Text = "Благодарим за использования програмы \"Продвинутый калькулятор\".\r\n\r\nСкачать самую " +
+    "последнюю версию можно по ссылке\r\nна\r\n 🅿🆁🅾🅶🆁🅰🅼🅸🅽🅶   🅱🆈   🅲🅴🆉🅽.🆅" +
+    "🅸\r\n";
             this.textBox_AboutForm.TextChanged += new System.EventHandler(this.textBox_AboutForm_TextChanged);
             // 
             // button_Ok
