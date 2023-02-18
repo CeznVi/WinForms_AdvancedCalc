@@ -293,6 +293,11 @@ namespace SimpleCalc
                         textBoxResult.Text += "%";
                         break;
                     }
+                case "𝝅":
+                    {
+                        CheckAndAddNum((Math.PI).ToString());
+                        break;
+                    }
 
             }
 
@@ -524,7 +529,8 @@ namespace SimpleCalc
                         textBoxResult.Text = operand;
                         break;
                     }
-                    
+
+
             }
         }
         /// <summary>
