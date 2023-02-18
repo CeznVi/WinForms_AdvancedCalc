@@ -16,5 +16,16 @@ namespace SimpleCalc
         {
             InitializeComponent();
         }
+
+        private void ConfigForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

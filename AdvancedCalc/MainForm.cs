@@ -10,6 +10,7 @@ namespace SimpleCalc
     public partial class MainForm : Form
     {
 
+        private ConfigForm _configForm = null;
         private readonly string[] _buttonNames_SimplyCalc =
         {
             "±", "x²", "⬅", "C",
@@ -41,6 +42,12 @@ namespace SimpleCalc
             InitializeComponent();
             this.Load += MainForm_Load;
             InitButtons();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+
         }
 
         /// <summary>
@@ -111,7 +118,6 @@ namespace SimpleCalc
             _buttonList.Clear();
         }
 
-
         /// <summary>
         /// Проверяет есть ли в строке цифры
         /// </summary>
@@ -132,6 +138,7 @@ namespace SimpleCalc
         /// <param name="e"></param>
         private void Btn_Click(object sender, EventArgs e)
         {
+
             Button btn = (Button)sender;
 
             switch (btn.Text)
@@ -237,6 +244,12 @@ namespace SimpleCalc
                 case "-":
                     {
                         _currOperation = "-";
+                        textBoxResult.Text = "";
+                        break;
+                    }
+                case "x^y":
+                    {
+                        _currOperation = "^";
                         textBoxResult.Text = "";
                         break;
                     }
@@ -508,6 +521,20 @@ namespace SimpleCalc
                         _currOperation = string.Empty;
                         break;
                     }
+                case "^":
+                    {
+                        if (IsRightOperandNull())
+                            break;
+
+                        lOper = double.Parse(_leftOperand);
+                        rOper = double.Parse(_rigthOperand);
+                        result = Math.Pow(lOper,rOper);
+                        textBoxResult.Text = result.ToString();
+                        _leftOperand = result.ToString();
+                        _rigthOperand = string.Empty;
+                        _currOperation = string.Empty;
+                        break;
+                    }
 
             }
         }
@@ -698,12 +725,6 @@ namespace SimpleCalc
                 return ref _rigthOperand;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-           
-
-        }
-
         /// <summary>
         /// Действие при нажатии о программе
         /// </summary>
@@ -755,6 +776,22 @@ namespace SimpleCalc
                     int.Parse(ConfigurationManager.AppSettings["advandcedModeHight"])
                 );
             InitButtons();
+        }
+
+        private void настройкиЦветаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_configForm == null)
+            {
+                _configForm = new ConfigForm();
+                _configForm.StartPosition = FormStartPosition.Manual;
+            }
+
+            _configForm.Location = new Point(
+                this.Location.X + this.Size.Width - 16,
+                this.Location.Y
+            );
+
+            _configForm.Show();
         }
     }
 }
