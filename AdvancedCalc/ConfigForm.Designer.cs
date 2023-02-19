@@ -146,7 +146,11 @@
             "25",
             "30",
             "35",
-            "40"});
+            "40",
+            "42",
+            "44",
+            "50",
+            "55"});
             this.comboBox_FontSize.Location = new System.Drawing.Point(220, 55);
             this.comboBox_FontSize.Name = "comboBox_FontSize";
             this.comboBox_FontSize.Size = new System.Drawing.Size(122, 21);

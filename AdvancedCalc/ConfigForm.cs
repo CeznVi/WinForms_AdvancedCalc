@@ -226,15 +226,20 @@ namespace SimpleCalc
                     comboBox_SelectFont.SelectedItem = _parentForm.GetButtonFontName();
                     comboBox_FontSize.SelectedItem = (_parentForm.GetButtonFontSize()).ToString();
                 }
-
-                
-                ////Стринг в фонт и обратно
-                ///Font selectedFont;
-                //var cvt = new FontConverter();
-                //selectedFont = cvt.ConvertFromString(_parentForm.GetButtonFontType()) as Font;
-
+                else if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт табло")
+                {
+                    comboBox_SelectFont.SelectedItem = _parentForm.GetTextBoxFontName();
+                    comboBox_FontSize.SelectedItem = (_parentForm.GetTextBoxFontSize()).ToString();
+                }
             }
         }
 
+
+
+
+        ////Стринг в фонт и обратно
+        ///Font selectedFont;
+        //var cvt = new FontConverter();
+        //selectedFont = cvt.ConvertFromString(_parentForm.GetButtonFontType()) as Font;
     }
 }

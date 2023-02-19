@@ -929,6 +929,7 @@ namespace SimpleCalc
             return _buttonList.Find(b => b.Tag != null).ForeColor;
         }
         
+        ///////Методы возвращения от элемента размер и низвание шрифта
         /// <summary>
         /// Метод возвращает название шрифта кнопок
         /// </summary>
@@ -945,6 +946,21 @@ namespace SimpleCalc
         {
             return _buttonList[0].Font.Size;
         }
-        
+        /// <summary>
+        /// Метод возвращает название шрифта табла
+        /// </summary>
+        /// <returns>Строка с названием шрифта</returns>
+        public string GetTextBoxFontName()
+        {
+            return textBoxResult.Font.Name;
+        }
+        /// <summary>
+        /// Метод возвращает размер шрифта табло
+        /// </summary>
+        /// <returns>Размер в виде флоат</returns>
+        public float GetTextBoxFontSize()
+        {
+            return textBoxResult.Font.Size;
+        }
     }
 }
