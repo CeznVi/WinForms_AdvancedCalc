@@ -819,6 +819,15 @@ namespace SimpleCalc
         {
             this.BackColor = color;
         }
+        /// <summary>
+        /// Метод устанавливает цвет табло
+        /// </summary>
+        /// <param name="color">Цвет типа "Color"</param>
+        public void ChangeColorTextBox(Color color)
+        {
+            this.textBoxResult.BackColor = color;
+        }
+
 
         /////// Методы получение цвета формы
         /// <summary>
@@ -844,6 +853,14 @@ namespace SimpleCalc
         public Color GetColorMainForm()
         {
             return this.BackColor;
+        }
+        /// <summary>
+        /// Метод возвращает цвет табло
+        /// </summary>
+        /// <returns>Цвет типа Color</returns>
+        public Color GetColorTextBox()
+        {
+            return this.textBoxResult.BackColor;
         }
 
     }

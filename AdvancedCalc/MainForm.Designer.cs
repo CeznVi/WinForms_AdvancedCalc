@@ -94,8 +94,8 @@
             // настройкиЦветаToolStripMenuItem
             // 
             this.настройкиЦветаToolStripMenuItem.Name = "настройкиЦветаToolStripMenuItem";
-            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.настройкиЦветаToolStripMenuItem.Text = "Настройки цвета";
+            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.настройкиЦветаToolStripMenuItem.Text = "Интерфейс";
             this.настройкиЦветаToolStripMenuItem.Click += new System.EventHandler(this.настройкиЦветаToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem

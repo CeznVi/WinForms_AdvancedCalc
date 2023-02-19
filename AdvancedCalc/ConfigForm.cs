@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimpleCalc
 {
@@ -41,30 +42,91 @@ namespace SimpleCalc
         /// </summary>
         private void trackBar_SetColor_BeforeChanget()
         {
-            Color setedColor = _parentForm.GetColorPanel();
-            trackBar_RedColor.Value = setedColor.R;
-            trackBar_BlueColor.Value = setedColor.B;
-            trackBar_GreenColor.Value = setedColor.G;
+
         }
 
 
-
+        /// <summary>
+        /// Метод управления трекбарами цвета
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trackBar_Color_ValueChanget(object sender, EventArgs e)
         {
-            Color panelColor = Color.FromArgb(
-                                            trackBar_RedColor.Value,
-                                            trackBar_GreenColor.Value,
-                                            trackBar_BlueColor.Value);
+            if (comboBox_SelectElement.SelectedItem == null)
+            {
+                trackBar_RedColor.Enabled = false;
+                trackBar_GreenColor.Enabled = false;
+                trackBar_BlueColor.Enabled = false;
+            }
+            else
+            {
+                trackBar_RedColor.Enabled = true;
+                trackBar_GreenColor.Enabled = true;
+                trackBar_BlueColor.Enabled = true;
 
-            groupBoxConfigColor.BackColor = panelColor;
-            _parentForm.ChangeColorPanel(panelColor);
-            _parentForm.ChangeColorMenuStrip(panelColor);
-            _parentForm.ChangeColorMainForm(panelColor);
+                Color selectedColor;
+                if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет подложки калькулятора")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+
+                    groupBoxConfigColor.BackColor = selectedColor;
+                    _parentForm.ChangeColorPanel(selectedColor);
+                    _parentForm.ChangeColorMenuStrip(selectedColor);
+                    _parentForm.ChangeColorMainForm(selectedColor);
+                }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет табло")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+
+                    _parentForm.ChangeColorTextBox(selectedColor);
+                }   
+            }
+
         }
 
+        /// <summary>
+        /// Выбор елемента для изменения цветом трекбаром
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (comboBox_SelectElement.SelectedItem == null)
+            {
+                trackBar_RedColor.Enabled = false;
+                trackBar_GreenColor.Enabled = false;
+                trackBar_BlueColor.Enabled = false;
+            }
+            else
+            {
+                trackBar_RedColor.Enabled = true;
+                trackBar_GreenColor.Enabled = true;
+                trackBar_BlueColor.Enabled = true;
+
+                Color setedColor;
+                if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет подложки калькулятора")
+                {
+                    setedColor = _parentForm.GetColorPanel();
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет табло"))
+                {
+                    setedColor = _parentForm.GetColorTextBox();
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
+            }
         }
+
     }
 }

@@ -72,6 +72,7 @@
             // trackBar_BlueColor
             // 
             this.trackBar_BlueColor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trackBar_BlueColor.Enabled = false;
             this.trackBar_BlueColor.Location = new System.Drawing.Point(3, 106);
             this.trackBar_BlueColor.Maximum = 255;
             this.trackBar_BlueColor.Name = "trackBar_BlueColor";
@@ -83,6 +84,7 @@
             // trackBar_GreenColor
             // 
             this.trackBar_GreenColor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trackBar_GreenColor.Enabled = false;
             this.trackBar_GreenColor.Location = new System.Drawing.Point(3, 61);
             this.trackBar_GreenColor.Maximum = 255;
             this.trackBar_GreenColor.Name = "trackBar_GreenColor";
@@ -94,6 +96,7 @@
             // trackBar_RedColor
             // 
             this.trackBar_RedColor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.trackBar_RedColor.Enabled = false;
             this.trackBar_RedColor.Location = new System.Drawing.Point(3, 16);
             this.trackBar_RedColor.Maximum = 255;
             this.trackBar_RedColor.Name = "trackBar_RedColor";
