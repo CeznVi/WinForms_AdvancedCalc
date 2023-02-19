@@ -61,7 +61,9 @@
             this.comboBox_SelectElement.Items.AddRange(new object[] {
             "цвет подложки калькулятора",
             "цвет табло",
-            "цвет текста табло"});
+            "цвет текста табло",
+            "цвет цифровых кнопок",
+            "цвет кнопки сброса"});
             this.comboBox_SelectElement.Location = new System.Drawing.Point(3, 151);
             this.comboBox_SelectElement.Name = "comboBox_SelectElement";
             this.comboBox_SelectElement.Size = new System.Drawing.Size(342, 21);

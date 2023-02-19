@@ -82,12 +82,15 @@ namespace SimpleCalc
                     tmp.Size = new Size(81, 50);
 
                 if (CheckIsStringNum(nameButton))
-                { 
+                {
                     tmp.BackColor = Color.LemonChiffon;
                     tmp.Tag = "NumButton";
-                }    
+                }
                 else if (nameButton == "C")
+                {
                     tmp.BackColor = Color.LightCyan;
+                    tmp.Tag = "CButton";
+                }
                 else
                     tmp.BackColor = Color.PeachPuff;
 
@@ -839,6 +842,15 @@ namespace SimpleCalc
             this.textBoxResult.ForeColor = color;
         }
 
+        public void ChangeColorButtonByTag(Color color, string tag)
+        {
+            foreach(Button b in _buttonList) 
+            {
+                if ((string)b.Tag == tag)
+                    b.BackColor = color;
+            }
+        }
+
 
         /////// Методы получение цвета формы
         /// <summary>
@@ -882,12 +894,11 @@ namespace SimpleCalc
             return this.textBoxResult.ForeColor;
         }
 
-        //public Color GetColorButtonNum()
-        //{
-        //    return this.panel.ButtonNum.BackColor;
 
-
-        //}
+        public Color GetColorButtonByTag(string tag)
+        {
+            return _buttonList.Find(b => (string)b.Tag == tag).BackColor;            //return _buttonList.Find(b => b.Tag == "NumButton").BackColor;
+        }
 
     }
 }

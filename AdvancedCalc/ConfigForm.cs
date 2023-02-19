@@ -97,6 +97,15 @@ namespace SimpleCalc
 
                     _parentForm.ChangeColorTextBoxText(selectedColor);
                 }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет цифровых кнопок")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+
+                    _parentForm.ChangeColorButtonByTag(selectedColor, "NumButton");
+                }
             }
 
         }
@@ -142,7 +151,15 @@ namespace SimpleCalc
                     trackBar_BlueColor.Value = setedColor.B;
                     trackBar_GreenColor.Value = setedColor.G;
                 }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет цифровых кнопок"))
+                {
+                    setedColor = _parentForm.GetColorButtonByTag("NumButton");
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
 
+                
             }
         }
 
