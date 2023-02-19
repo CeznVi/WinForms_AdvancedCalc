@@ -122,6 +122,15 @@ namespace SimpleCalc
                                     trackBar_BlueColor.Value);
                     _parentForm.ChangeColorButtonByTag(selectedColor, "OpButton");
                 }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет текста всех кнопок")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+                    _parentForm.ChangeColorTextButton(selectedColor);
+                }
+
             }
 
         }
@@ -188,7 +197,15 @@ namespace SimpleCalc
                     trackBar_BlueColor.Value = setedColor.B;
                     trackBar_GreenColor.Value = setedColor.G;
                 }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет текста всех кнопок"))
+                {
+                    setedColor = _parentForm.GetColorTextButton();
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
 
+                
             }
         }
 

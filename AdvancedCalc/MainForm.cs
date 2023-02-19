@@ -857,6 +857,18 @@ namespace SimpleCalc
                     b.BackColor = color;
             }
         }
+        /// <summary>
+        /// Метод устанавливает цвет текста кнопок
+        /// </summary>
+        /// <param name="color">Цвет типа Color</param>
+        public void ChangeColorTextButton(Color color)
+        {
+            foreach (Button b in _buttonList)
+            {
+                    b.ForeColor = color;
+            }
+        }
+
 
         /////// Методы получение цвета формы
         /// <summary>
@@ -908,6 +920,13 @@ namespace SimpleCalc
         {
             return _buttonList.Find(b => (string)b.Tag == tag).BackColor;            //return _buttonList.Find(b => b.Tag == "NumButton").BackColor;
         }
-
+        /// <summary>
+        /// Метод возвращает цвет текста кнопок
+        /// </summary>
+        /// <returns>Цвет типа Color</returns>
+        public Color GetColorTextButton()
+        {
+            return _buttonList.Find(b => b.Tag != null).ForeColor;            
+        }
     }
 }
