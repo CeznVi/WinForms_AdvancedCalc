@@ -94,7 +94,7 @@
             // настройкиЦветаToolStripMenuItem
             // 
             this.настройкиЦветаToolStripMenuItem.Name = "настройкиЦветаToolStripMenuItem";
-            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.настройкиЦветаToolStripMenuItem.Text = "Интерфейс";
             this.настройкиЦветаToolStripMenuItem.Click += new System.EventHandler(this.настройкиЦветаToolStripMenuItem_Click);
             // 
@@ -115,11 +115,11 @@
             // 
             // textBoxResult
             // 
-            this.textBoxResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxResult.BackColor = System.Drawing.Color.LightGray;
+            this.textBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxResult.ForeColor = System.Drawing.Color.Gray;
+            this.textBoxResult.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.textBoxResult.Location = new System.Drawing.Point(0, 27);
             this.textBoxResult.Multiline = true;
             this.textBoxResult.Name = "textBoxResult";
@@ -127,7 +127,6 @@
             this.textBoxResult.Size = new System.Drawing.Size(344, 70);
             this.textBoxResult.TabIndex = 1;
             this.textBoxResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxResult.TextChanged += new System.EventHandler(this.textBoxResult_TextChanged);
             // 
             // panel
             // 

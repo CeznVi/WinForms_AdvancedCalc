@@ -746,11 +746,6 @@ namespace SimpleCalc
             aboutForm.ShowDialog();
         }
 
-        private void textBoxResult_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void видToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -982,7 +977,8 @@ namespace SimpleCalc
         /// <param name="size">Размер в виде флоат</param>
         public void ChangeFontNameAndSizeTextBox(string font, float size) 
         {
-            textBoxResult.Font = Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            textBoxResult.Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
         }
+
     }
 }

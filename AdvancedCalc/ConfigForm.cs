@@ -259,7 +259,9 @@ namespace SimpleCalc
                 }
                 else if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт табло")
                 {
-
+                    string font = comboBox_SelectFont.SelectedItem.ToString();
+                    float size = float.Parse((_parentForm.GetTextBoxFontSize()).ToString());
+                    _parentForm.ChangeFontNameAndSizeTextBox(font, size);
                 }
             }
         }
@@ -284,7 +286,9 @@ namespace SimpleCalc
                 }
                 else if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт табло")
                 {
-
+                    string font = _parentForm.GetTextBoxFontName();
+                    float size = float.Parse(comboBox_FontSize.SelectedItem.ToString());
+                    _parentForm.ChangeFontNameAndSizeTextBox(font, size);
                 }
             }
         }
