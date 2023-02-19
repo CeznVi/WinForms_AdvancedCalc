@@ -926,7 +926,13 @@ namespace SimpleCalc
         /// <returns>Цвет типа Color</returns>
         public Color GetColorTextButton()
         {
-            return _buttonList.Find(b => b.Tag != null).ForeColor;            
+            return _buttonList.Find(b => b.Tag != null).ForeColor;
         }
+        
+        public string GetButtonFontType()
+        {
+            return _buttonList[0].Font.Name;
+        }
+        
     }
 }

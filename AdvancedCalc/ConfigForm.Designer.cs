@@ -34,10 +34,15 @@
             this.trackBar_BlueColor = new System.Windows.Forms.TrackBar();
             this.trackBar_GreenColor = new System.Windows.Forms.TrackBar();
             this.trackBar_RedColor = new System.Windows.Forms.TrackBar();
+            this.groupBox_ConfigText = new System.Windows.Forms.GroupBox();
+            this.comboBox_txtConfig = new System.Windows.Forms.ComboBox();
+            this.comboBox_SelectFont = new System.Windows.Forms.ComboBox();
+            this.comboBox_FontSize = new System.Windows.Forms.ComboBox();
             this.groupBoxConfigColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_BlueColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_GreenColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_RedColor)).BeginInit();
+            this.groupBox_ConfigText.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxConfigColor
@@ -110,11 +115,54 @@
             this.trackBar_RedColor.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar_RedColor.ValueChanged += new System.EventHandler(this.trackBar_Color_ValueChanget);
             // 
+            // groupBox_ConfigText
+            // 
+            this.groupBox_ConfigText.Controls.Add(this.comboBox_FontSize);
+            this.groupBox_ConfigText.Controls.Add(this.comboBox_SelectFont);
+            this.groupBox_ConfigText.Controls.Add(this.comboBox_txtConfig);
+            this.groupBox_ConfigText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox_ConfigText.Location = new System.Drawing.Point(0, 183);
+            this.groupBox_ConfigText.Name = "groupBox_ConfigText";
+            this.groupBox_ConfigText.Size = new System.Drawing.Size(348, 99);
+            this.groupBox_ConfigText.TabIndex = 1;
+            this.groupBox_ConfigText.TabStop = false;
+            this.groupBox_ConfigText.Text = "Конфигуратор шрифтов";
+            // 
+            // comboBox_txtConfig
+            // 
+            this.comboBox_txtConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_txtConfig.FormattingEnabled = true;
+            this.comboBox_txtConfig.Location = new System.Drawing.Point(3, 16);
+            this.comboBox_txtConfig.Name = "comboBox_txtConfig";
+            this.comboBox_txtConfig.Size = new System.Drawing.Size(342, 21);
+            this.comboBox_txtConfig.TabIndex = 0;
+            this.comboBox_txtConfig.Text = "Выбирите елемент для изменения шрифта";
+            // 
+            // comboBox_SelectFont
+            // 
+            this.comboBox_SelectFont.FormattingEnabled = true;
+            this.comboBox_SelectFont.Location = new System.Drawing.Point(3, 55);
+            this.comboBox_SelectFont.Name = "comboBox_SelectFont";
+            this.comboBox_SelectFont.Size = new System.Drawing.Size(211, 21);
+            this.comboBox_SelectFont.TabIndex = 1;
+            this.comboBox_SelectFont.Text = "Шрифт";
+            // 
+            // comboBox_FontSize
+            // 
+            this.comboBox_FontSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_FontSize.FormattingEnabled = true;
+            this.comboBox_FontSize.Location = new System.Drawing.Point(220, 55);
+            this.comboBox_FontSize.Name = "comboBox_FontSize";
+            this.comboBox_FontSize.Size = new System.Drawing.Size(122, 21);
+            this.comboBox_FontSize.TabIndex = 2;
+            this.comboBox_FontSize.Text = "Размер шрифта";
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 445);
+            this.Controls.Add(this.groupBox_ConfigText);
             this.Controls.Add(this.groupBoxConfigColor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -128,6 +176,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_BlueColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_GreenColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_RedColor)).EndInit();
+            this.groupBox_ConfigText.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,5 +188,9 @@
         private System.Windows.Forms.TrackBar trackBar_GreenColor;
         private System.Windows.Forms.TrackBar trackBar_RedColor;
         private System.Windows.Forms.ComboBox comboBox_SelectElement;
+        private System.Windows.Forms.GroupBox groupBox_ConfigText;
+        private System.Windows.Forms.ComboBox comboBox_txtConfig;
+        private System.Windows.Forms.ComboBox comboBox_FontSize;
+        private System.Windows.Forms.ComboBox comboBox_SelectFont;
     }
 }
