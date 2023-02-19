@@ -55,7 +55,7 @@ namespace SimpleCalc
         /// </summary>
         private void InitButtons()
         {
-            string[] _buttonNames = null; 
+            string[] _buttonNames = null;
             int ind = 0;
             int indDown = 0;
             int posX = 4;
@@ -480,7 +480,7 @@ namespace SimpleCalc
 
                         lOper = double.Parse(_leftOperand);
                         rOper = double.Parse(_rigthOperand);
-                        result = lOper - ((lOper * rOper)/100);
+                        result = lOper - ((lOper * rOper) / 100);
                         textBoxResult.Text = result.ToString();
                         _leftOperand = result.ToString();
                         _rigthOperand = string.Empty;
@@ -537,7 +537,7 @@ namespace SimpleCalc
 
                         lOper = double.Parse(_leftOperand);
                         rOper = double.Parse(_rigthOperand);
-                        result = Math.Pow(lOper,rOper);
+                        result = Math.Pow(lOper, rOper);
                         textBoxResult.Text = result.ToString();
                         _leftOperand = result.ToString();
                         _rigthOperand = string.Empty;
@@ -560,7 +560,7 @@ namespace SimpleCalc
                 return true;
             }
             else
-                return false; 
+                return false;
         }
         /// <summary>
         /// Проверяет левый операнд на пустоту
@@ -590,7 +590,7 @@ namespace SimpleCalc
             {
                 case "x²":
                     {
-                        if(IsLeftOperandNull())
+                        if (IsLeftOperandNull())
                             break;
                         num = double.Parse(operand);
                         num *= num;
@@ -624,7 +624,7 @@ namespace SimpleCalc
                         if (num < 0) num *= -1;
                         operand = num.ToString();
                         textBoxResult.Text = operand;
-                        break; 
+                        break;
                     }
                 case "log":
                     {
@@ -651,7 +651,7 @@ namespace SimpleCalc
                         if (IsLeftOperandNull())
                             break;
                         num = double.Parse(operand);
-                        num = Math.Pow(10,num);
+                        num = Math.Pow(10, num);
                         operand = num.ToString();
                         textBoxResult.Text = operand;
                         break;
@@ -755,12 +755,12 @@ namespace SimpleCalc
         {
 
         }
-         
+
         private void стандартныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             стандартныйToolStripMenuItem.Checked = true;
             инженерныйToolStripMenuItem.Checked = false;
-           
+
             ClearButtons();
             textBoxResult.Text = string.Empty;
 
@@ -773,7 +773,7 @@ namespace SimpleCalc
 
         private void инженерныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            стандартныйToolStripMenuItem.Checked= false;
+            стандартныйToolStripMenuItem.Checked = false;
             инженерныйToolStripMenuItem.Checked = true;
 
             ClearButtons();
@@ -802,7 +802,7 @@ namespace SimpleCalc
 
             _configForm.Show();
         }
-    
+
         ///////Методы установки цвета формы
         /// <summary>
         /// Метод устанавливает цвет подложки
@@ -810,7 +810,7 @@ namespace SimpleCalc
         /// <param name="color">Требует цвет</param>
         public void ChangeColorPanel(Color color)
         {
-            this.panel.BackColor= color;
+            this.panel.BackColor = color;
         }
         /// <summary>
         /// Метод устанавливает цвет подложки меню
@@ -851,7 +851,7 @@ namespace SimpleCalc
         /// <param name="tag">тег кнопки</param>
         public void ChangeColorButtonByTag(Color color, string tag)
         {
-            foreach(Button b in _buttonList) 
+            foreach (Button b in _buttonList)
             {
                 if ((string)b.Tag == tag)
                     b.BackColor = color;
@@ -865,10 +865,9 @@ namespace SimpleCalc
         {
             foreach (Button b in _buttonList)
             {
-                    b.ForeColor = color;
+                b.ForeColor = color;
             }
         }
-
 
         /////// Методы получение цвета формы
         /// <summary>
@@ -928,7 +927,7 @@ namespace SimpleCalc
         {
             return _buttonList.Find(b => b.Tag != null).ForeColor;
         }
-        
+
         ///////Методы возвращения от элемента размер и низвание шрифта
         /// <summary>
         /// Метод возвращает название шрифта кнопок
@@ -942,7 +941,7 @@ namespace SimpleCalc
         /// Метод возвращает размер шрифта кнопок
         /// </summary>
         /// <returns>Размер в виде флоат</returns>
-        public float GetButtonFontSize() 
+        public float GetButtonFontSize()
         {
             return _buttonList[0].Font.Size;
         }
@@ -962,5 +961,20 @@ namespace SimpleCalc
         {
             return textBoxResult.Font.Size;
         }
+
+        ///////Методы сетят элементу размер и новый шрифт
+        /// <summary>
+        /// Метод в батонах изменяет размер шрифта и сам шрифт
+        /// </summary>
+        /// <param name="font"></param>
+        /// <param name="size"></param>
+        public void ChangeFontNameAndSizeButton(string font, float size)
+        {
+            foreach (Button b in _buttonList)
+            {
+                b.Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            }
+        }
+
     }
 }

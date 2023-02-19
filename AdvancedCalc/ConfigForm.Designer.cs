@@ -137,7 +137,7 @@
             "6",
             "7",
             "8",
-            "8.25",
+            "8,25",
             "9",
             "12",
             "14",
@@ -156,20 +156,27 @@
             this.comboBox_FontSize.Size = new System.Drawing.Size(122, 21);
             this.comboBox_FontSize.TabIndex = 2;
             this.comboBox_FontSize.Text = "Размер шрифта";
+            this.comboBox_FontSize.SelectedValueChanged += new System.EventHandler(this.comboBox_FontSize_SelectedValueChanged);
             // 
             // comboBox_SelectFont
             // 
             this.comboBox_SelectFont.Enabled = false;
             this.comboBox_SelectFont.FormattingEnabled = true;
             this.comboBox_SelectFont.Items.AddRange(new object[] {
-            "Microsoft Sans Serif",
             "Arial",
-            "Times New Roman"});
+            "Arial Black",
+            "Courier New",
+            "Comic Sans MS",
+            "Microsoft Sans Serif",
+            "Times New Roman",
+            "Verdana",
+            "Franklin Gothic Medium"});
             this.comboBox_SelectFont.Location = new System.Drawing.Point(3, 55);
             this.comboBox_SelectFont.Name = "comboBox_SelectFont";
             this.comboBox_SelectFont.Size = new System.Drawing.Size(211, 21);
             this.comboBox_SelectFont.TabIndex = 1;
             this.comboBox_SelectFont.Text = "Шрифт";
+            this.comboBox_SelectFont.SelectedValueChanged += new System.EventHandler(this.comboBox_SelectFont_SelectedValueChanged);
             // 
             // comboBox_txtConfig
             // 

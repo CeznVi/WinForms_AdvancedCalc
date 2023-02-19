@@ -234,12 +234,59 @@ namespace SimpleCalc
             }
         }
 
+        /// <summary>
+        /// Изменения шрифта выбраного элемента
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox_SelectFont_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBox_txtConfig.SelectedItem == null)
+            {
+                comboBox_SelectFont.Enabled = false;
+                comboBox_FontSize.Enabled = false;
+            }
+            else
+            {
+                comboBox_SelectFont.Enabled = true;
+                comboBox_FontSize.Enabled = true;
 
+                if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт кнопок")
+                {
+                    string font = comboBox_SelectFont.SelectedItem.ToString();
+                    float size = float.Parse((_parentForm.GetButtonFontSize()).ToString());
+                    _parentForm.ChangeFontNameAndSizeButton(font, size);
+                }
+                else if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт табло")
+                {
 
+                }
+            }
+        }
 
-        ////Стринг в фонт и обратно
-        ///Font selectedFont;
-        //var cvt = new FontConverter();
-        //selectedFont = cvt.ConvertFromString(_parentForm.GetButtonFontType()) as Font;
+        private void comboBox_FontSize_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBox_txtConfig.SelectedItem == null)
+            {
+                comboBox_SelectFont.Enabled = false;
+                comboBox_FontSize.Enabled = false;
+            }
+            else
+            {
+                comboBox_SelectFont.Enabled = true;
+                comboBox_FontSize.Enabled = true;
+
+                if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт кнопок")
+                {
+                    string font = _parentForm.GetButtonFontName();
+                    float size = float.Parse(comboBox_FontSize.SelectedItem.ToString());
+                    _parentForm.ChangeFontNameAndSizeButton(font, size);
+                }
+                else if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт табло")
+                {
+
+                }
+            }
+        }
     }
 }
