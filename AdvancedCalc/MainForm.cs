@@ -92,7 +92,10 @@ namespace SimpleCalc
                     tmp.Tag = "CButton";
                 }
                 else
+                {
                     tmp.BackColor = Color.PeachPuff;
+                    tmp.Tag = "OpButton";
+                }
 
                 tmp.Text = nameButton;
 
@@ -841,7 +844,11 @@ namespace SimpleCalc
         {
             this.textBoxResult.ForeColor = color;
         }
-
+        /// <summary>
+        /// Метод устанавливает цвет кнопок по тєгу
+        /// </summary>
+        /// <param name="color">Цвет типа Color</param>
+        /// <param name="tag">тег кнопки</param>
         public void ChangeColorButtonByTag(Color color, string tag)
         {
             foreach(Button b in _buttonList) 
@@ -850,7 +857,6 @@ namespace SimpleCalc
                     b.BackColor = color;
             }
         }
-
 
         /////// Методы получение цвета формы
         /// <summary>
@@ -893,8 +899,11 @@ namespace SimpleCalc
         {
             return this.textBoxResult.ForeColor;
         }
-
-
+        /// <summary>
+        /// Метод возвращает цвет кнопок по тєгу
+        /// </summary>
+        /// <param name="tag">тег кнопки</param>
+        /// <returns>Цвет типа Color</returns>
         public Color GetColorButtonByTag(string tag)
         {
             return _buttonList.Find(b => (string)b.Tag == tag).BackColor;            //return _buttonList.Find(b => b.Tag == "NumButton").BackColor;

@@ -106,6 +106,22 @@ namespace SimpleCalc
 
                     _parentForm.ChangeColorButtonByTag(selectedColor, "NumButton");
                 }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет кнопки сброса")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+                    _parentForm.ChangeColorButtonByTag(selectedColor, "CButton");
+                }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет кнопок операций")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+                    _parentForm.ChangeColorButtonByTag(selectedColor, "OpButton");
+                }
             }
 
         }
@@ -158,8 +174,21 @@ namespace SimpleCalc
                     trackBar_BlueColor.Value = setedColor.B;
                     trackBar_GreenColor.Value = setedColor.G;
                 }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет кнопки сброса"))
+                {
+                    setedColor = _parentForm.GetColorButtonByTag("CButton");
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет кнопок операций"))
+                {
+                    setedColor = _parentForm.GetColorButtonByTag("OpButton");
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
 
-                
             }
         }
 
