@@ -782,7 +782,7 @@ namespace SimpleCalc
         {
             if (_configForm == null)
             {
-                _configForm = new ConfigForm();
+                _configForm = new ConfigForm(this);
                 _configForm.StartPosition = FormStartPosition.Manual;
             }
 
@@ -793,5 +793,23 @@ namespace SimpleCalc
 
             _configForm.Show();
         }
+    
+        /// <summary>
+        /// Метод устанавливает цвет подложки
+        /// </summary>
+        /// <param name="color">Требует цвет</param>
+        public void ChangeColorPanel(Color color)
+        {
+            this.panel.BackColor= color;
+        }
+        /// <summary>
+        /// Метод возвращает цвет подложки
+        /// </summary>
+        /// <returns>Вернет текущий цвет подложки</returns>
+        public Color GetColorPanel()
+        {
+            return this.panel.BackColor;
+        }
+    
     }
 }

@@ -61,6 +61,7 @@
             this.trackBar_BlueColor.Size = new System.Drawing.Size(342, 45);
             this.trackBar_BlueColor.TabIndex = 2;
             this.trackBar_BlueColor.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBar_BlueColor.ValueChanged += new System.EventHandler(this.trackBar_Color_ValueChanget);
             // 
             // trackBar_GreenColor
             // 
@@ -71,6 +72,7 @@
             this.trackBar_GreenColor.Size = new System.Drawing.Size(342, 45);
             this.trackBar_GreenColor.TabIndex = 1;
             this.trackBar_GreenColor.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBar_GreenColor.ValueChanged += new System.EventHandler(this.trackBar_Color_ValueChanget);
             // 
             // trackBar_RedColor
             // 
@@ -81,6 +83,7 @@
             this.trackBar_RedColor.Size = new System.Drawing.Size(342, 45);
             this.trackBar_RedColor.TabIndex = 0;
             this.trackBar_RedColor.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBar_RedColor.ValueChanged += new System.EventHandler(this.trackBar_Color_ValueChanget);
             // 
             // ConfigForm
             // 
