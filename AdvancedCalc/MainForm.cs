@@ -929,9 +929,21 @@ namespace SimpleCalc
             return _buttonList.Find(b => b.Tag != null).ForeColor;
         }
         
-        public string GetButtonFontType()
+        /// <summary>
+        /// Метод возвращает название шрифта кнопок
+        /// </summary>
+        /// <returns>Строка с названием шрифта</returns>
+        public string GetButtonFontName()
         {
             return _buttonList[0].Font.Name;
+        }
+        /// <summary>
+        /// Метод возвращает размер шрифта кнопок
+        /// </summary>
+        /// <returns>Размер в виде флоат</returns>
+        public float GetButtonFontSize() 
+        {
+            return _buttonList[0].Font.Size;
         }
         
     }

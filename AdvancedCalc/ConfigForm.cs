@@ -20,6 +20,10 @@ namespace SimpleCalc
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Коструктор конфиг формы которому передается ссылка текущей формы для доступа к ее методам
+        /// </summary>
+        /// <param name="mainForm"></param>
         public ConfigForm(MainForm mainForm)
         {
             _parentForm = mainForm;
@@ -36,15 +40,6 @@ namespace SimpleCalc
             this.Hide();
             e.Cancel = true;
         }
-
-        /// <summary>
-        /// ДОДЕЛАТЬ сделать универсальным
-        /// </summary>
-        private void trackBar_SetColor_BeforeChanget()
-        {
-
-        }
-
 
         /// <summary>
         /// Метод управления трекбарами цвета
@@ -77,7 +72,7 @@ namespace SimpleCalc
                     _parentForm.ChangeColorPanel(selectedColor);
                     _parentForm.ChangeColorMenuStrip(selectedColor);
                     _parentForm.ChangeColorMainForm(selectedColor);
-                    this.BackColor = selectedColor;  
+                    this.BackColor = selectedColor;
                 }
                 else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет табло")
                 {
@@ -205,7 +200,39 @@ namespace SimpleCalc
                     trackBar_GreenColor.Value = setedColor.G;
                 }
 
+
+            }
+        }
+
+        /// <summary>
+        /// Выбор элемента для изменения его параметров шрифта и размера
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBox_txtConfig_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_txtConfig.SelectedItem == null)
+            {
+                comboBox_SelectFont.Enabled = false;
+                comboBox_FontSize.Enabled = false;
+            }
+            else
+            {
+                comboBox_SelectFont.Enabled = true;
+                comboBox_FontSize.Enabled = true;
+
+                if ((comboBox_txtConfig.SelectedItem).ToString() == "шрифт кнопок")
+                {
+                    comboBox_SelectFont.SelectedItem = _parentForm.GetButtonFontName();
+                    comboBox_FontSize.SelectedItem = (_parentForm.GetButtonFontSize()).ToString();
+                }
+
                 
+                ////Стринг в фонт и обратно
+                ///Font selectedFont;
+                //var cvt = new FontConverter();
+                //selectedFont = cvt.ConvertFromString(_parentForm.GetButtonFontType()) as Font;
+
             }
         }
 

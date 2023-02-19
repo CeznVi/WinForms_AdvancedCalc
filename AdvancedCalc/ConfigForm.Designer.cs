@@ -35,9 +35,9 @@
             this.trackBar_GreenColor = new System.Windows.Forms.TrackBar();
             this.trackBar_RedColor = new System.Windows.Forms.TrackBar();
             this.groupBox_ConfigText = new System.Windows.Forms.GroupBox();
-            this.comboBox_txtConfig = new System.Windows.Forms.ComboBox();
-            this.comboBox_SelectFont = new System.Windows.Forms.ComboBox();
             this.comboBox_FontSize = new System.Windows.Forms.ComboBox();
+            this.comboBox_SelectFont = new System.Windows.Forms.ComboBox();
+            this.comboBox_txtConfig = new System.Windows.Forms.ComboBox();
             this.groupBoxConfigColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_BlueColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_GreenColor)).BeginInit();
@@ -128,34 +128,57 @@
             this.groupBox_ConfigText.TabStop = false;
             this.groupBox_ConfigText.Text = "Конфигуратор шрифтов";
             // 
-            // comboBox_txtConfig
+            // comboBox_FontSize
             // 
-            this.comboBox_txtConfig.Dock = System.Windows.Forms.DockStyle.Top;
-            this.comboBox_txtConfig.FormattingEnabled = true;
-            this.comboBox_txtConfig.Location = new System.Drawing.Point(3, 16);
-            this.comboBox_txtConfig.Name = "comboBox_txtConfig";
-            this.comboBox_txtConfig.Size = new System.Drawing.Size(342, 21);
-            this.comboBox_txtConfig.TabIndex = 0;
-            this.comboBox_txtConfig.Text = "Выбирите елемент для изменения шрифта";
+            this.comboBox_FontSize.Enabled = false;
+            this.comboBox_FontSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox_FontSize.FormattingEnabled = true;
+            this.comboBox_FontSize.Items.AddRange(new object[] {
+            "6",
+            "7",
+            "8",
+            "8.25",
+            "9",
+            "12",
+            "14",
+            "16",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40"});
+            this.comboBox_FontSize.Location = new System.Drawing.Point(220, 55);
+            this.comboBox_FontSize.Name = "comboBox_FontSize";
+            this.comboBox_FontSize.Size = new System.Drawing.Size(122, 21);
+            this.comboBox_FontSize.TabIndex = 2;
+            this.comboBox_FontSize.Text = "Размер шрифта";
             // 
             // comboBox_SelectFont
             // 
+            this.comboBox_SelectFont.Enabled = false;
             this.comboBox_SelectFont.FormattingEnabled = true;
+            this.comboBox_SelectFont.Items.AddRange(new object[] {
+            "Microsoft Sans Serif",
+            "Arial",
+            "Times New Roman"});
             this.comboBox_SelectFont.Location = new System.Drawing.Point(3, 55);
             this.comboBox_SelectFont.Name = "comboBox_SelectFont";
             this.comboBox_SelectFont.Size = new System.Drawing.Size(211, 21);
             this.comboBox_SelectFont.TabIndex = 1;
             this.comboBox_SelectFont.Text = "Шрифт";
             // 
-            // comboBox_FontSize
+            // comboBox_txtConfig
             // 
-            this.comboBox_FontSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox_FontSize.FormattingEnabled = true;
-            this.comboBox_FontSize.Location = new System.Drawing.Point(220, 55);
-            this.comboBox_FontSize.Name = "comboBox_FontSize";
-            this.comboBox_FontSize.Size = new System.Drawing.Size(122, 21);
-            this.comboBox_FontSize.TabIndex = 2;
-            this.comboBox_FontSize.Text = "Размер шрифта";
+            this.comboBox_txtConfig.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_txtConfig.FormattingEnabled = true;
+            this.comboBox_txtConfig.Items.AddRange(new object[] {
+            "шрифт табло",
+            "шрифт кнопок"});
+            this.comboBox_txtConfig.Location = new System.Drawing.Point(3, 16);
+            this.comboBox_txtConfig.Name = "comboBox_txtConfig";
+            this.comboBox_txtConfig.Size = new System.Drawing.Size(342, 21);
+            this.comboBox_txtConfig.TabIndex = 0;
+            this.comboBox_txtConfig.SelectedIndexChanged += new System.EventHandler(this.comboBox_txtConfig_SelectedIndexChanged);
             // 
             // ConfigForm
             // 
