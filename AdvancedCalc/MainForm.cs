@@ -82,7 +82,10 @@ namespace SimpleCalc
                     tmp.Size = new Size(81, 50);
 
                 if (CheckIsStringNum(nameButton))
+                { 
                     tmp.BackColor = Color.LemonChiffon;
+                    tmp.Tag = "NumButton";
+                }    
                 else if (nameButton == "C")
                     tmp.BackColor = Color.LightCyan;
                 else
@@ -827,6 +830,14 @@ namespace SimpleCalc
         {
             this.textBoxResult.BackColor = color;
         }
+        /// <summary>
+        /// Метод устанавливает цвет теста табло
+        /// </summary>
+        /// <param name="color">Цвет типа "Color"</param>
+        public void ChangeColorTextBoxText(Color color)
+        {
+            this.textBoxResult.ForeColor = color;
+        }
 
 
         /////// Методы получение цвета формы
@@ -862,6 +873,21 @@ namespace SimpleCalc
         {
             return this.textBoxResult.BackColor;
         }
+        /// <summary>
+        /// Метод возвращает цвет текста табло
+        /// </summary>
+        /// <returns>Цвет типа Color</returns>
+        public Color GetColorTextBoxText()
+        {
+            return this.textBoxResult.ForeColor;
+        }
+
+        //public Color GetColorButtonNum()
+        //{
+        //    return this.panel.ButtonNum.BackColor;
+
+
+        //}
 
     }
 }

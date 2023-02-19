@@ -49,7 +49,7 @@
             this.groupBoxConfigColor.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxConfigColor.Location = new System.Drawing.Point(0, 0);
             this.groupBoxConfigColor.Name = "groupBoxConfigColor";
-            this.groupBoxConfigColor.Size = new System.Drawing.Size(348, 315);
+            this.groupBoxConfigColor.Size = new System.Drawing.Size(348, 183);
             this.groupBoxConfigColor.TabIndex = 0;
             this.groupBoxConfigColor.TabStop = false;
             this.groupBoxConfigColor.Text = "Конфигуратор цвета";
@@ -60,7 +60,8 @@
             this.comboBox_SelectElement.FormattingEnabled = true;
             this.comboBox_SelectElement.Items.AddRange(new object[] {
             "цвет подложки калькулятора",
-            "цвет табло"});
+            "цвет табло",
+            "цвет текста табло"});
             this.comboBox_SelectElement.Location = new System.Drawing.Point(3, 151);
             this.comboBox_SelectElement.Name = "comboBox_SelectElement";
             this.comboBox_SelectElement.Size = new System.Drawing.Size(342, 21);

@@ -77,6 +77,7 @@ namespace SimpleCalc
                     _parentForm.ChangeColorPanel(selectedColor);
                     _parentForm.ChangeColorMenuStrip(selectedColor);
                     _parentForm.ChangeColorMainForm(selectedColor);
+                    this.BackColor = selectedColor;  
                 }
                 else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет табло")
                 {
@@ -86,7 +87,16 @@ namespace SimpleCalc
                                     trackBar_BlueColor.Value);
 
                     _parentForm.ChangeColorTextBox(selectedColor);
-                }   
+                }
+                else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет текста табло")
+                {
+                    selectedColor = Color.FromArgb(
+                                    trackBar_RedColor.Value,
+                                    trackBar_GreenColor.Value,
+                                    trackBar_BlueColor.Value);
+
+                    _parentForm.ChangeColorTextBoxText(selectedColor);
+                }
             }
 
         }
@@ -125,6 +135,14 @@ namespace SimpleCalc
                     trackBar_BlueColor.Value = setedColor.B;
                     trackBar_GreenColor.Value = setedColor.G;
                 }
+                else if (((comboBox_SelectElement.SelectedItem).ToString() == "цвет текста табло"))
+                {
+                    setedColor = _parentForm.GetColorTextBoxText();
+                    trackBar_RedColor.Value = setedColor.R;
+                    trackBar_BlueColor.Value = setedColor.B;
+                    trackBar_GreenColor.Value = setedColor.G;
+                }
+
             }
         }
 
