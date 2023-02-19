@@ -966,8 +966,8 @@ namespace SimpleCalc
         /// <summary>
         /// Метод в батонах изменяет размер шрифта и сам шрифт
         /// </summary>
-        /// <param name="font"></param>
-        /// <param name="size"></param>
+        /// <param name="font">Шрифт в виде стринга</param>
+        /// <param name="size">Размер в виде флоат</param>
         public void ChangeFontNameAndSizeButton(string font, float size)
         {
             foreach (Button b in _buttonList)
@@ -975,6 +975,14 @@ namespace SimpleCalc
                 b.Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             }
         }
-
+        /// <summary>
+        /// Метод в ТекстБоксе изменяет размер шрифта и сам шрифт
+        /// </summary>
+        /// <param name="font">Шрифт в виде стринга</param>
+        /// <param name="size">Размер в виде флоат</param>
+        public void ChangeFontNameAndSizeTextBox(string font, float size) 
+        {
+            textBoxResult.Font = Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+        }
     }
 }
