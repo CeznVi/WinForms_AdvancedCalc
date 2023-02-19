@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.groupBoxConfigColor = new System.Windows.Forms.GroupBox();
+            this.comboBox_SelectElement = new System.Windows.Forms.ComboBox();
             this.trackBar_BlueColor = new System.Windows.Forms.TrackBar();
             this.trackBar_GreenColor = new System.Windows.Forms.TrackBar();
             this.trackBar_RedColor = new System.Windows.Forms.TrackBar();
@@ -41,6 +42,7 @@
             // 
             // groupBoxConfigColor
             // 
+            this.groupBoxConfigColor.Controls.Add(this.comboBox_SelectElement);
             this.groupBoxConfigColor.Controls.Add(this.trackBar_BlueColor);
             this.groupBoxConfigColor.Controls.Add(this.trackBar_GreenColor);
             this.groupBoxConfigColor.Controls.Add(this.trackBar_RedColor);
@@ -51,6 +53,21 @@
             this.groupBoxConfigColor.TabIndex = 0;
             this.groupBoxConfigColor.TabStop = false;
             this.groupBoxConfigColor.Text = "Конфигуратор цвета";
+            // 
+            // comboBox_SelectElement
+            // 
+            this.comboBox_SelectElement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox_SelectElement.FormattingEnabled = true;
+            this.comboBox_SelectElement.Items.AddRange(new object[] {
+            "цвет подложки калькулятора",
+            "цвет табло"});
+            this.comboBox_SelectElement.Location = new System.Drawing.Point(3, 151);
+            this.comboBox_SelectElement.Name = "comboBox_SelectElement";
+            this.comboBox_SelectElement.Size = new System.Drawing.Size(342, 21);
+            this.comboBox_SelectElement.TabIndex = 3;
+            this.comboBox_SelectElement.Tag = "";
+            this.comboBox_SelectElement.Text = "Выбирите елемент для изменения цвета";
+            this.comboBox_SelectElement.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // trackBar_BlueColor
             // 
@@ -113,5 +130,6 @@
         private System.Windows.Forms.TrackBar trackBar_BlueColor;
         private System.Windows.Forms.TrackBar trackBar_GreenColor;
         private System.Windows.Forms.TrackBar trackBar_RedColor;
+        private System.Windows.Forms.ComboBox comboBox_SelectElement;
     }
 }

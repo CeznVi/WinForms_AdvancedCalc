@@ -794,6 +794,7 @@ namespace SimpleCalc
             _configForm.Show();
         }
     
+        ///////Методы установки цвета формы
         /// <summary>
         /// Метод устанавливает цвет подложки
         /// </summary>
@@ -803,6 +804,24 @@ namespace SimpleCalc
             this.panel.BackColor= color;
         }
         /// <summary>
+        /// Метод устанавливает цвет подложки меню
+        /// </summary>
+        /// <param name="color">Требует цвет</param>
+        public void ChangeColorMenuStrip(Color color)
+        {
+            this.menuStrip.BackColor = color;
+        }
+        /// <summary>
+        /// Метод устанавливает цвет основной формы
+        /// </summary>
+        /// <param name="color"></param>
+        public void ChangeColorMainForm(Color color)
+        {
+            this.BackColor = color;
+        }
+
+        /////// Методы получение цвета формы
+        /// <summary>
         /// Метод возвращает цвет подложки
         /// </summary>
         /// <returns>Вернет текущий цвет подложки</returns>
@@ -810,6 +829,22 @@ namespace SimpleCalc
         {
             return this.panel.BackColor;
         }
-    
+        /// <summary>
+        /// Метод возвращает цвет подложки меню
+        /// </summary>
+        /// <returns></returns>
+        public Color GetColorMenuStrip()
+        {
+            return this.menuStrip.BackColor;
+        }
+        /// <summary>
+        /// Метод возвращает цвет подложки основной формы
+        /// </summary>
+        /// <returns>Цвет типа Color</returns>
+        public Color GetColorMainForm()
+        {
+            return this.BackColor;
+        }
+
     }
 }

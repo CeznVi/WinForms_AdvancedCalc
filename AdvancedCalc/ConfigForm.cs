@@ -36,12 +36,21 @@ namespace SimpleCalc
             e.Cancel = true;
         }
 
-        private void trackBar_Color_ValueChanget(object sender, EventArgs e)
+        /// <summary>
+        /// ДОДЕЛАТЬ сделать универсальным
+        /// </summary>
+        private void trackBar_SetColor_BeforeChanget()
         {
             Color setedColor = _parentForm.GetColorPanel();
-            trackBar_RedColor.Site = setedColor.R;
+            trackBar_RedColor.Value = setedColor.R;
+            trackBar_BlueColor.Value = setedColor.B;
+            trackBar_GreenColor.Value = setedColor.G;
+        }
 
 
+
+        private void trackBar_Color_ValueChanget(object sender, EventArgs e)
+        {
             Color panelColor = Color.FromArgb(
                                             trackBar_RedColor.Value,
                                             trackBar_GreenColor.Value,
@@ -49,8 +58,13 @@ namespace SimpleCalc
 
             groupBoxConfigColor.BackColor = panelColor;
             _parentForm.ChangeColorPanel(panelColor);
-
+            _parentForm.ChangeColorMenuStrip(panelColor);
+            _parentForm.ChangeColorMainForm(panelColor);
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

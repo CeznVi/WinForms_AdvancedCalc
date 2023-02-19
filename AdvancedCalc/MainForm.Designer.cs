@@ -34,11 +34,11 @@
             this.стандартныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.инженерныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиЦветаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.panel = new System.Windows.Forms.Panel();
-            this.настройкиЦветаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,13 @@
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
+            // настройкиЦветаToolStripMenuItem
+            // 
+            this.настройкиЦветаToolStripMenuItem.Name = "настройкиЦветаToolStripMenuItem";
+            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.настройкиЦветаToolStripMenuItem.Text = "Настройки цвета";
+            this.настройкиЦветаToolStripMenuItem.Click += new System.EventHandler(this.настройкиЦветаToolStripMenuItem_Click);
+            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -130,13 +137,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(344, 341);
             this.panel.TabIndex = 2;
-            // 
-            // настройкиЦветаToolStripMenuItem
-            // 
-            this.настройкиЦветаToolStripMenuItem.Name = "настройкиЦветаToolStripMenuItem";
-            this.настройкиЦветаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.настройкиЦветаToolStripMenuItem.Text = "Настройки цвета";
-            this.настройкиЦветаToolStripMenuItem.Click += new System.EventHandler(this.настройкиЦветаToolStripMenuItem_Click);
             // 
             // MainForm
             // 
