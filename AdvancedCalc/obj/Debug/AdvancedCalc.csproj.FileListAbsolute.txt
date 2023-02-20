@@ -4,10 +4,10 @@ C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.AssemblyReference.cache
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.SuggestedBindingRedirects.cache
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.AboutForm.resources
+C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.ConfigForm.resources
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.MainForm.resources
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.Properties.Resources.resources
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.GenerateResource.cache
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\AdvancedCalc.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.exe
 C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.pdb
-C:\Users\Admin\Desktop\Програмирование\source\repos\ItStep_HW_OOP\WinForms_AdvancedCalc\AdvancedCalc\obj\Debug\SimpleCalc.ConfigForm.resources

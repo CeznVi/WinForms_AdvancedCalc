@@ -82,23 +82,8 @@ namespace SimpleCalc
 
                 if (CheckIsStringNum(nameButton))
                 {
-                    //tmp.BackColor = Color.LemonChiffon;
-                    //tmp.BackColor = Color.FromName(GetInfoFromConfigFileByKey("user_Button_Num_Color"));
-
-
-                    //tmp.BackColor = Color.FromName(
-                    //    GetInfoFromConfigFileByKey("user_Button_Num_Color")
-                    //    );
-
                     tmp.BackColor = 
-                        Color.FromArgb(
-                                int.Parse(GetInfoFromConfigFileByKey("user_Button_Num_Color"))
-                                );
-
-                    MessageBox.Show(
-                        tmp.BackColor.ToString());
-
-
+                        Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_Button_Num_Color")));
                     tmp.Tag = "NumButton";
                 }
                 else if (nameButton == "C")
