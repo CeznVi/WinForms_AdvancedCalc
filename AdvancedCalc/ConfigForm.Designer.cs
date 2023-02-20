@@ -198,21 +198,25 @@
             // 
             // button_saveChanges
             // 
+            this.button_saveChanges.BackColor = System.Drawing.Color.PaleGreen;
             this.button_saveChanges.Location = new System.Drawing.Point(200, 385);
             this.button_saveChanges.Name = "button_saveChanges";
             this.button_saveChanges.Size = new System.Drawing.Size(136, 48);
             this.button_saveChanges.TabIndex = 2;
             this.button_saveChanges.Text = "Сохранить настройки";
-            this.button_saveChanges.UseVisualStyleBackColor = true;
+            this.button_saveChanges.UseVisualStyleBackColor = false;
+            this.button_saveChanges.Click += new System.EventHandler(this.button_saveChanges_Click);
             // 
             // button_resetToDefault
             // 
+            this.button_resetToDefault.BackColor = System.Drawing.Color.Khaki;
             this.button_resetToDefault.Location = new System.Drawing.Point(12, 385);
             this.button_resetToDefault.Name = "button_resetToDefault";
             this.button_resetToDefault.Size = new System.Drawing.Size(136, 48);
             this.button_resetToDefault.TabIndex = 3;
             this.button_resetToDefault.Text = "Востановить \r\nстандартные \r\nнастройки";
-            this.button_resetToDefault.UseVisualStyleBackColor = true;
+            this.button_resetToDefault.UseVisualStyleBackColor = false;
+            this.button_resetToDefault.Click += new System.EventHandler(this.button_resetToDefault_Click);
             // 
             // label_noticeConfig
             // 

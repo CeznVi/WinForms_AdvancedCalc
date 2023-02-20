@@ -299,16 +299,31 @@ namespace SimpleCalc
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
 
-            configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
-            configFile.AppSettings.Settings.Add
-                        (
-                        "user_Button_Num_Color",
-                        (_parentForm.GetColorButtonByTag("NumButton")).ToKnownColor().ToString()
-                        );
+            configFile.AppSettings.Settings["user_Button_Num_Color"].Value =
+                (_parentForm.GetColorButtonByTag("NumButton")).ToString();
+
+            //configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
+            //configFile.AppSettings.Settings.Add
+            //            (
+            //            "user_Button_Num_Color",
+            //            (_parentForm.GetColorButtonByTag("NumButton")).ToString()
+            //            );
+            MessageBox.Show(settings["user_Button_Num_Color"].Value);
 
 
             configFile.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+        }
+
+        private void button_resetToDefault_Click(object sender, EventArgs e)
+        {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var settings = configFile.AppSettings.Settings;
+
+            configFile.AppSettings.Settings["user_Button_Num_Color"].Value = 
+                (Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])).ToString();
+
+            _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])), "NumButton");
         }
     }
 }

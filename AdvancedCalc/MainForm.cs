@@ -83,9 +83,16 @@ namespace SimpleCalc
                 if (CheckIsStringNum(nameButton))
                 {
                     //tmp.BackColor = Color.LemonChiffon;
-                    //tmp.BackColor = Color.FromName(ConfigurationManager.AppSettings["user_Button_Num_Color"]);
+                    //tmp.BackColor = Color.FromName(GetInfoFromConfigFileByKey("user_Button_Num_Color"));
+                    tmp.BackColor = Color.FromName(
+                        GetInfoFromConfigFileByKey("user_Button_Num_Color").ToString()
+                        );
 
-                    tmp.BackColor = Color.FromName(GetInfoFromConfigFileByKey("user_Button_Num_Color"));
+                    MessageBox.Show(
+                        Color.FromName(
+                            GetInfoFromConfigFileByKey("user_Button_Num_Color")
+                        ).ToString());
+
 
                     tmp.Tag = "NumButton";
                 }
@@ -988,7 +995,7 @@ namespace SimpleCalc
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
 
-            return (configFile.AppSettings.Settings[key]).Value;
+            return configFile.AppSettings.Settings[key].Value;
         }
 
     }
