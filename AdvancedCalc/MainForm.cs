@@ -84,14 +84,19 @@ namespace SimpleCalc
                 {
                     //tmp.BackColor = Color.LemonChiffon;
                     //tmp.BackColor = Color.FromName(GetInfoFromConfigFileByKey("user_Button_Num_Color"));
-                    tmp.BackColor = Color.FromName(
-                        GetInfoFromConfigFileByKey("user_Button_Num_Color").ToString()
-                        );
+
+
+                    //tmp.BackColor = Color.FromName(
+                    //    GetInfoFromConfigFileByKey("user_Button_Num_Color")
+                    //    );
+
+                    tmp.BackColor = 
+                        Color.FromArgb(
+                                int.Parse(GetInfoFromConfigFileByKey("user_Button_Num_Color"))
+                                );
 
                     MessageBox.Show(
-                        Color.FromName(
-                            GetInfoFromConfigFileByKey("user_Button_Num_Color")
-                        ).ToString());
+                        tmp.BackColor.ToString());
 
 
                     tmp.Tag = "NumButton";

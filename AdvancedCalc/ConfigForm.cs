@@ -299,16 +299,26 @@ namespace SimpleCalc
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
 
-            configFile.AppSettings.Settings["user_Button_Num_Color"].Value =
-                (_parentForm.GetColorButtonByTag("NumButton")).ToString();
 
-            //configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
+            //configFile.AppSettings.Settings["user_Button_Num_Color"].Value =
+            //    _parentForm.GetColorButtonByTag("NumButton").ToString();
+
+            configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
             //configFile.AppSettings.Settings.Add
             //            (
             //            "user_Button_Num_Color",
             //            (_parentForm.GetColorButtonByTag("NumButton")).ToString()
             //            );
-            MessageBox.Show(settings["user_Button_Num_Color"].Value);
+
+            ///test argB
+            configFile.AppSettings.Settings.Add
+            (
+            "user_Button_Num_Color",
+            (_parentForm.GetColorButtonByTag("NumButton")).ToArgb().ToString()
+            ); ;
+
+
+            MessageBox.Show($"SAVEchange CLick: {settings["user_Button_Num_Color"].Value}");
 
 
             configFile.Save(ConfigurationSaveMode.Modified);
