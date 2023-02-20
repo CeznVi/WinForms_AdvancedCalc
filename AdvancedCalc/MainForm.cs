@@ -47,7 +47,6 @@ namespace SimpleCalc
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-
         }
 
         /// <summary>
@@ -83,7 +82,11 @@ namespace SimpleCalc
 
                 if (CheckIsStringNum(nameButton))
                 {
-                    tmp.BackColor = Color.LemonChiffon;
+                    //tmp.BackColor = Color.LemonChiffon;
+                    //tmp.BackColor = Color.FromName(ConfigurationManager.AppSettings["user_Button_Num_Color"]);
+
+                    tmp.BackColor = Color.FromName(GetInfoFromConfigFileByKey("user_Button_Num_Color"));
+
                     tmp.Tag = "NumButton";
                 }
                 else if (nameButton == "C")
@@ -978,6 +981,14 @@ namespace SimpleCalc
         public void ChangeFontNameAndSizeTextBox(string font, float size) 
         {
             textBoxResult.Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+        }
+
+        public string GetInfoFromConfigFileByKey(string key)
+        {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var settings = configFile.AppSettings.Settings;
+
+            return (configFile.AppSettings.Settings[key]).Value;
         }
 
     }

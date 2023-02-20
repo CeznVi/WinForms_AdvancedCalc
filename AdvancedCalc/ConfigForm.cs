@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -291,6 +292,23 @@ namespace SimpleCalc
                     _parentForm.ChangeFontNameAndSizeTextBox(font, size);
                 }
             }
+        }
+
+        private void button_saveChanges_Click(object sender, EventArgs e)
+        {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var settings = configFile.AppSettings.Settings;
+
+            configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_Button_Num_Color",
+                        (_parentForm.GetColorButtonByTag("NumButton")).ToKnownColor().ToString()
+                        );
+
+
+            configFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
         }
     }
 }

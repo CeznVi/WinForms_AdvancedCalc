@@ -38,6 +38,9 @@
             this.comboBox_FontSize = new System.Windows.Forms.ComboBox();
             this.comboBox_SelectFont = new System.Windows.Forms.ComboBox();
             this.comboBox_txtConfig = new System.Windows.Forms.ComboBox();
+            this.button_saveChanges = new System.Windows.Forms.Button();
+            this.button_resetToDefault = new System.Windows.Forms.Button();
+            this.label_noticeConfig = new System.Windows.Forms.Label();
             this.groupBoxConfigColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_BlueColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_GreenColor)).BeginInit();
@@ -193,11 +196,44 @@
             this.comboBox_txtConfig.TabIndex = 0;
             this.comboBox_txtConfig.SelectedIndexChanged += new System.EventHandler(this.comboBox_txtConfig_SelectedIndexChanged);
             // 
+            // button_saveChanges
+            // 
+            this.button_saveChanges.Location = new System.Drawing.Point(200, 385);
+            this.button_saveChanges.Name = "button_saveChanges";
+            this.button_saveChanges.Size = new System.Drawing.Size(136, 48);
+            this.button_saveChanges.TabIndex = 2;
+            this.button_saveChanges.Text = "Сохранить настройки";
+            this.button_saveChanges.UseVisualStyleBackColor = true;
+            // 
+            // button_resetToDefault
+            // 
+            this.button_resetToDefault.Location = new System.Drawing.Point(12, 385);
+            this.button_resetToDefault.Name = "button_resetToDefault";
+            this.button_resetToDefault.Size = new System.Drawing.Size(136, 48);
+            this.button_resetToDefault.TabIndex = 3;
+            this.button_resetToDefault.Text = "Востановить \r\nстандартные \r\nнастройки";
+            this.button_resetToDefault.UseVisualStyleBackColor = true;
+            // 
+            // label_noticeConfig
+            // 
+            this.label_noticeConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label_noticeConfig.Location = new System.Drawing.Point(9, 285);
+            this.label_noticeConfig.Name = "label_noticeConfig";
+            this.label_noticeConfig.Size = new System.Drawing.Size(327, 87);
+            this.label_noticeConfig.TabIndex = 4;
+            this.label_noticeConfig.Text = "При выходе из окна настроек не нажав кнопку \"сохранить настройки\" - они не сохран" +
+    "ятся. При следующем запуске программы будут использованы настройки сохраненные р" +
+    "анее.\r\n ";
+            this.label_noticeConfig.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 445);
+            this.Controls.Add(this.label_noticeConfig);
+            this.Controls.Add(this.button_resetToDefault);
+            this.Controls.Add(this.button_saveChanges);
             this.Controls.Add(this.groupBox_ConfigText);
             this.Controls.Add(this.groupBoxConfigColor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -228,5 +264,8 @@
         private System.Windows.Forms.ComboBox comboBox_txtConfig;
         private System.Windows.Forms.ComboBox comboBox_FontSize;
         private System.Windows.Forms.ComboBox comboBox_SelectFont;
+        private System.Windows.Forms.Button button_saveChanges;
+        private System.Windows.Forms.Button button_resetToDefault;
+        private System.Windows.Forms.Label label_noticeConfig;
     }
 }
