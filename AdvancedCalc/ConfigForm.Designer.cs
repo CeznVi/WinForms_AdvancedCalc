@@ -194,6 +194,7 @@
             this.comboBox_txtConfig.Name = "comboBox_txtConfig";
             this.comboBox_txtConfig.Size = new System.Drawing.Size(342, 21);
             this.comboBox_txtConfig.TabIndex = 0;
+            this.comboBox_txtConfig.Text = "Выбирите элемент для изменения шрифта и размера";
             this.comboBox_txtConfig.SelectedIndexChanged += new System.EventHandler(this.comboBox_txtConfig_SelectedIndexChanged);
             // 
             // button_saveChanges

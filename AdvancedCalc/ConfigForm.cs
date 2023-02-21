@@ -320,6 +320,9 @@ namespace SimpleCalc
             configFile.AppSettings.Settings.Remove("user_Button_Font");
             configFile.AppSettings.Settings.Remove("user_Button_FontSize");
 
+            configFile.AppSettings.Settings.Remove("user_TextBox_Font");
+            configFile.AppSettings.Settings.Remove("user_TextBox_FontSize");
+
             configFile.AppSettings.Settings.Add
                         (
                         "user_Button_Num_Color", 
@@ -356,15 +359,25 @@ namespace SimpleCalc
                         _parentForm.GetColorMainForm().ToArgb().ToString()
                         );
             configFile.AppSettings.Settings.Add
-                (
-                "user_Button_Font",
-                _parentForm.GetButtonFontName()
-                );
+                        (
+                        "user_Button_Font",
+                        _parentForm.GetButtonFontName()
+                        );
             configFile.AppSettings.Settings.Add
-                (
-                "user_Button_FontSize",
-                _parentForm.GetButtonFontSize().ToString()
-                );
+                        (
+                        "user_Button_FontSize",
+                        _parentForm.GetButtonFontSize().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_TextBox_Font",
+                        _parentForm.GetTextBoxFontName()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_TextBox_FontSize",
+                        _parentForm.GetTextBoxFontSize().ToString()
+                        );
 
             ////for debug
             ////MessageBox.Show($"SAVEchange CLick: {settings["user_Button_Num_Color"].Value}");
@@ -406,6 +419,13 @@ namespace SimpleCalc
             configFile.AppSettings.Settings["user_Button_FontSize"].Value =
                 ConfigurationManager.AppSettings["default_Button_FontSize"];
 
+            configFile.AppSettings.Settings["user_TextBox_Font"].Value =
+                ConfigurationManager.AppSettings["default_TextBox_Font"];
+
+            configFile.AppSettings.Settings["user_TextBox_FontSize"].Value =
+                ConfigurationManager.AppSettings["default_TextBox_FontSize"];
+
+
             ////Установка дефолтных параметров в элементы
             _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])), "NumButton");
 
@@ -429,6 +449,11 @@ namespace SimpleCalc
             _parentForm.ChangeFontNameAndSizeButton(
                 ConfigurationManager.AppSettings["default_Button_Font"],
                 float.Parse(ConfigurationManager.AppSettings["default_Button_FontSize"])
+                );
+
+            _parentForm.ChangeFontNameAndSizeTextBox(
+                ConfigurationManager.AppSettings["default_TextBox_Font"],
+                float.Parse(ConfigurationManager.AppSettings["default_TextBox_FontSize"])
                 );
         }
     }
