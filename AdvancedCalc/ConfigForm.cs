@@ -303,6 +303,7 @@ namespace SimpleCalc
             configFile.AppSettings.Settings.Remove("user_Button_C_Color");
             configFile.AppSettings.Settings.Remove("user_Button_Op_Color");
             configFile.AppSettings.Settings.Remove("user_Button_Text_Color");
+            configFile.AppSettings.Settings.Remove("user_TextBox_Color");
 
             configFile.AppSettings.Settings.Add
                         (
@@ -323,6 +324,11 @@ namespace SimpleCalc
                         (
                         "user_Button_Text_Color",
                         _parentForm.GetColorTextButton().ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_TextBox_Color",
+                        _parentForm.GetColorTextBox().ToArgb().ToString()
                         );
 
 
@@ -351,6 +357,9 @@ namespace SimpleCalc
             configFile.AppSettings.Settings["user_Button_Text_Color"].Value =
                 (Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"])).ToString();
 
+            configFile.AppSettings.Settings["user_TextBox_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Color"])).ToString();     
+
             ////Установка дефолтных параметров в элементы
             _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])), "NumButton");
 
@@ -359,6 +368,8 @@ namespace SimpleCalc
             _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Op_Color"])), "OpButton");
 
             _parentForm.ChangeColorTextButton(Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"]));
+
+            _parentForm.ChangeColorTextBox(Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Color"]));
         }
     }
 }
