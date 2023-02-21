@@ -1002,6 +1002,11 @@ namespace SimpleCalc
             textBoxResult.Font = new System.Drawing.Font(font, size, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
         }
 
+        /// <summary>
+        /// Метод получение Value из конфиг файла по KEY
+        /// </summary>
+        /// <param name="key">STRING параметр ключа</param>
+        /// <returns>Возвращает значение Value в виде STRING</returns>
         public string GetInfoFromConfigFileByKey(string key)
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
