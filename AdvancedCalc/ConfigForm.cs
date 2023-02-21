@@ -298,31 +298,39 @@ namespace SimpleCalc
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
-
-
-            //configFile.AppSettings.Settings["user_Button_Num_Color"].Value =
-            //    _parentForm.GetColorButtonByTag("NumButton").ToString();
-
+            
             configFile.AppSettings.Settings.Remove("user_Button_Num_Color");
-            //configFile.AppSettings.Settings.Add
-            //            (
-            //            "user_Button_Num_Color",
-            //            (_parentForm.GetColorButtonByTag("NumButton")).ToString()
-            //            );
+            configFile.AppSettings.Settings.Remove("user_Button_C_Color");
+            configFile.AppSettings.Settings.Remove("user_Button_Op_Color");
+            configFile.AppSettings.Settings.Remove("user_Button_Text_Color");
 
-            ///test argB
             configFile.AppSettings.Settings.Add
-            (
-            "user_Button_Num_Color",
-            (_parentForm.GetColorButtonByTag("NumButton")).ToArgb().ToString()
-            ); ;
+                        (
+                        "user_Button_Num_Color", 
+                        (_parentForm.GetColorButtonByTag("NumButton")).ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_Button_C_Color",
+                        (_parentForm.GetColorButtonByTag("CButton")).ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_Button_Op_Color",
+                        (_parentForm.GetColorButtonByTag("OpButton")).ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_Button_Text_Color",
+                        _parentForm.GetColorTextButton().ToArgb().ToString()
+                        );
 
 
-            MessageBox.Show($"SAVEchange CLick: {settings["user_Button_Num_Color"].Value}");
-
-
+            ////for debug
+            ////MessageBox.Show($"SAVEchange CLick: {settings["user_Button_Num_Color"].Value}");
             configFile.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            MessageBox.Show("Настройки сохранены");
         }
 
         private void button_resetToDefault_Click(object sender, EventArgs e)
@@ -330,10 +338,27 @@ namespace SimpleCalc
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
 
+            ////Перезапись параметров программы
             configFile.AppSettings.Settings["user_Button_Num_Color"].Value = 
                 (Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])).ToString();
 
+            configFile.AppSettings.Settings["user_Button_C_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_Button_C_Color"])).ToString();
+
+            configFile.AppSettings.Settings["user_Button_Op_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_Button_Op_Color"])).ToString();
+
+            configFile.AppSettings.Settings["user_Button_Text_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"])).ToString();
+
+            ////Установка дефолтных параметров в элементы
             _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])), "NumButton");
+
+            _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_C_Color"])), "CButton");
+
+            _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Op_Color"])), "OpButton");
+
+            _parentForm.ChangeColorTextButton(Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"]));
         }
     }
 }

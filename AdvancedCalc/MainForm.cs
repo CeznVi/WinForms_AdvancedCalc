@@ -46,7 +46,7 @@ namespace SimpleCalc
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            this.textBoxResult.BackColor = Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_TextBox_Color")));
         }
 
         /// <summary>
@@ -75,6 +75,9 @@ namespace SimpleCalc
             {
                 Button tmp = new Button();
 
+                tmp.ForeColor = 
+                    Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_Button_Text_Color")));
+
                 if (nameButton == "," || nameButton == "=" || nameButton == "0")
                     tmp.Size = new Size(109, 50);
                 else
@@ -88,12 +91,14 @@ namespace SimpleCalc
                 }
                 else if (nameButton == "C")
                 {
-                    tmp.BackColor = Color.LightCyan;
+                    tmp.BackColor =
+                        Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_Button_C_Color")));
                     tmp.Tag = "CButton";
                 }
                 else
                 {
-                    tmp.BackColor = Color.PeachPuff;
+                    tmp.BackColor =
+                        Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_Button_Op_Color")));
                     tmp.Tag = "OpButton";
                 }
 
@@ -987,6 +992,5 @@ namespace SimpleCalc
 
             return configFile.AppSettings.Settings[key].Value;
         }
-
     }
 }
