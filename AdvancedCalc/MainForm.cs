@@ -47,6 +47,23 @@ namespace SimpleCalc
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.textBoxResult.BackColor = Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_TextBox_Color")));
+            this.textBoxResult.ForeColor = Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_TextBox_Text_Color")));
+
+            Color color = Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_AppBackground_Color")));
+            this.ChangeColorPanel(color);
+            this.ChangeColorMenuStrip(color);
+            this.ChangeColorMainForm(color);
+
+            ChangeFontNameAndSizeButton(
+                            GetInfoFromConfigFileByKey("user_Button_Font"),
+                            float.Parse(GetInfoFromConfigFileByKey("user_Button_FontSize"))
+                            );
+
+            ChangeFontNameAndSizeTextBox(
+                GetInfoFromConfigFileByKey("user_TextBox_Font"),
+                float.Parse(GetInfoFromConfigFileByKey("user_TextBox_FontSize"))
+                );
+
         }
 
         /// <summary>

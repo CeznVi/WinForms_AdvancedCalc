@@ -31,9 +31,19 @@ namespace SimpleCalc
             InitializeComponent();
         }
 
+        public string GetInfoFromConfigFileByKey(string key)
+        {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var settings = configFile.AppSettings.Settings;
+
+            return configFile.AppSettings.Settings[key].Value;
+        }
+
         private void ConfigForm_Load(object sender, EventArgs e)
         {
-
+            Color color = Color.FromArgb(int.Parse(GetInfoFromConfigFileByKey("user_AppBackground_Color")));
+            groupBoxConfigColor.BackColor = color;
+            this.BackColor = color;
         }
 
         private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,10 +80,10 @@ namespace SimpleCalc
                                     trackBar_BlueColor.Value);
 
                     groupBoxConfigColor.BackColor = selectedColor;
+                    this.BackColor = selectedColor;
                     _parentForm.ChangeColorPanel(selectedColor);
                     _parentForm.ChangeColorMenuStrip(selectedColor);
                     _parentForm.ChangeColorMainForm(selectedColor);
-                    this.BackColor = selectedColor;
                 }
                 else if ((comboBox_SelectElement.SelectedItem).ToString() == "цвет табло")
                 {
@@ -304,6 +314,11 @@ namespace SimpleCalc
             configFile.AppSettings.Settings.Remove("user_Button_Op_Color");
             configFile.AppSettings.Settings.Remove("user_Button_Text_Color");
             configFile.AppSettings.Settings.Remove("user_TextBox_Color");
+            configFile.AppSettings.Settings.Remove("user_TextBox_Text_Color");
+            configFile.AppSettings.Settings.Remove("user_AppBackground_Color");
+
+            configFile.AppSettings.Settings.Remove("user_Button_Font");
+            configFile.AppSettings.Settings.Remove("user_Button_FontSize");
 
             configFile.AppSettings.Settings.Add
                         (
@@ -330,7 +345,26 @@ namespace SimpleCalc
                         "user_TextBox_Color",
                         _parentForm.GetColorTextBox().ToArgb().ToString()
                         );
-
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_TextBox_Text_Color",
+                        _parentForm.GetColorTextBoxText().ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                        (
+                        "user_AppBackground_Color",
+                        _parentForm.GetColorMainForm().ToArgb().ToString()
+                        );
+            configFile.AppSettings.Settings.Add
+                (
+                "user_Button_Font",
+                _parentForm.GetButtonFontName()
+                );
+            configFile.AppSettings.Settings.Add
+                (
+                "user_Button_FontSize",
+                _parentForm.GetButtonFontSize().ToString()
+                );
 
             ////for debug
             ////MessageBox.Show($"SAVEchange CLick: {settings["user_Button_Num_Color"].Value}");
@@ -358,7 +392,19 @@ namespace SimpleCalc
                 (Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"])).ToString();
 
             configFile.AppSettings.Settings["user_TextBox_Color"].Value =
-                (Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Color"])).ToString();     
+                (Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Color"])).ToString();
+
+            configFile.AppSettings.Settings["user_TextBox_Text_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Text_Color"])).ToString();
+
+            configFile.AppSettings.Settings["user_AppBackground_Color"].Value =
+                (Color.FromName(ConfigurationManager.AppSettings["default_AppBackground_Color"])).ToString();
+
+            configFile.AppSettings.Settings["user_Button_Font"].Value =
+                ConfigurationManager.AppSettings["default_Button_Font"];
+            
+            configFile.AppSettings.Settings["user_Button_FontSize"].Value =
+                ConfigurationManager.AppSettings["default_Button_FontSize"];
 
             ////Установка дефолтных параметров в элементы
             _parentForm.ChangeColorButtonByTag((Color.FromName(ConfigurationManager.AppSettings["default_Button_Num_Color"])), "NumButton");
@@ -370,6 +416,20 @@ namespace SimpleCalc
             _parentForm.ChangeColorTextButton(Color.FromName(ConfigurationManager.AppSettings["default_Button_Text_Color"]));
 
             _parentForm.ChangeColorTextBox(Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Color"]));
+
+            _parentForm.ChangeColorTextBoxText(Color.FromName(ConfigurationManager.AppSettings["default_TextBox_Text_Color"]));
+
+            Color color = Color.FromName(ConfigurationManager.AppSettings["default_AppBackground_Color"]);
+            groupBoxConfigColor.BackColor = color;
+            this.BackColor = color;
+            _parentForm.ChangeColorPanel(color);
+            _parentForm.ChangeColorMenuStrip(color);
+            _parentForm.ChangeColorMainForm(color);
+
+            _parentForm.ChangeFontNameAndSizeButton(
+                ConfigurationManager.AppSettings["default_Button_Font"],
+                float.Parse(ConfigurationManager.AppSettings["default_Button_FontSize"])
+                );
         }
     }
 }
